@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, request
+from flask import Flask, request, render_template
 import requests,json
 import os,subprocess
 
-app = Flask(__name__, instance_relative_config=True)
+app = Flask(__name__)
 app.config.from_object('config')
-app.config.from_pyfile('config.py')
 
 #底下放FB給的token
 FB_TOKEN = app.config["FB_TOKEN"]
@@ -70,6 +69,11 @@ def execute(cmd):
                 r+="command timeout"
             return r
     return '你再說什麼?'
-	
+
+#隱私權頁面
+@app.route('/privacy')
+def privacy():
+    return render_template('privacy_policy.html')
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=8000,threaded=True)
+    app.run(host='0.0.0.0',port=80,threaded=True)
