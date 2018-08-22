@@ -2,6 +2,7 @@
 from flask import Flask, request, render_template
 import requests,json
 import os,subprocess
+import re
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -53,8 +54,16 @@ def execute(cmd):
     if cmd == '社課':
         return '不用來啦'
     
+    x = re.findall("py", cmd)
+    try:
+        if x[0] == "py":
+            return '你再說什麼?'
+    except:
+        pass
+
     commands = ['echo','man', 'ping', 'which', 'uname', 'stat', 'head', 'ls', 'id', 'who', 'tail', 'whereis', 'cat', 'pstree']
     cmd_array = cmd.split(' ')
+    
     for i in commands:
         if cmd_array[0] == i:
             p = subprocess.Popen(cmd_array, stdin=subprocess.PIPE, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
