@@ -81,7 +81,7 @@ def execute(cmd):
                         r+="command timeout"
                     return r
                 else:
-                    return '你再說什麼?'
+                    return '你沒有權限喔~~'
             else:
                 p = subprocess.Popen(cmd_array, stdin=subprocess.PIPE, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
                 r = ">> \n"
