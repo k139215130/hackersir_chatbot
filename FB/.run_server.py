@@ -61,23 +61,41 @@ def execute(cmd):
     except:
         pass
 
-    commands = ['echo','man', 'ping', 'which', 'uname', 'stat', 'head', 'ls', 'id', 'who', 'tail', 'whereis', 'cat', 'pstree']
+    commands = ['echo','man', 'ping', 'which', 'uname', 'stat', 'head', 'cat', 'ls', 'id', 'who', 'tail', 'whereis', 'pstree']
     cmd_array = cmd.split(' ')
-    
+
     for i in commands:
         if cmd_array[0] == i:
-            p = subprocess.Popen(cmd_array, stdin=subprocess.PIPE, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
-            r = ">> \n"
-            try:
-                stdout, stderr = p.communicate(timeout=3)
-                if stdout:
-                    r += stdout.decode("utf-8")
-                if stderr:
-                    r += stderr.decode("utf-8")
-            except:
-                r+="command timeout"
-            return r
-    return '你再說什麼?'
+            if cmd_array[0] == 'cat':
+                y = re.findall(".flag", cmd_array[1])
+                if y != []:
+                    p = subprocess.Popen(cmd_array, stdin=subprocess.PIPE, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+                    r = ">> \n"
+                    try:
+                        stdout, stderr = p.communicate(timeout=3)
+                        if stdout:
+                            r += stdout.decode("utf-8")
+                        if stderr:
+                            r += stderr.decode("utf-8")
+                    except:
+                        r+="command timeout"
+                    return r
+                else:
+                    return '你再說什麼?'
+            else:
+                p = subprocess.Popen(cmd_array, stdin=subprocess.PIPE, stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+                r = ">> \n"
+                try:
+                    stdout, stderr = p.communicate(timeout=3)
+                    if stdout:
+                        r += stdout.decode("utf-8")
+                    if stderr:
+                        r += stderr.decode("utf-8")
+                except:
+                    r+="command timeout"
+                return r
+    else:
+        return '你再說什麼?'
 
 #隱私權頁面
 @app.route('/privacy')
