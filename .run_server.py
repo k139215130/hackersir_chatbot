@@ -1,18 +1,48 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, request, render_template
+import requests,json
 import os,subprocess
 import re
 
 app = Flask(__name__)
+app.config.from_object('config')
 
-#首頁
+#底下放FB給的token
+FB_TOKEN = app.config["FB_TOKEN"]
+
+#FBbot
 @app.route('/', methods=['GET','POST'])
-def index():
-    if request.method == 'GET':
-        return render_template('index.html')
-    elif request.method == 'POST':
-        cmd = request.form.get('inputCommand')
-        return render_template('index.html', result = execute(cmd))
+def callback():
+    if request.method == 'POST' :
+        try:
+            message_entries = json.loads(request.data.decode('utf8')) #取得json
+            message = message_entries['entry'][0]['messaging'][0]['message']['text'] #取得message
+        
+            print(message)
+            print('\n')
+        
+            message_sender = message_entries['entry'][0]['messaging'][0]['sender']['id'] #取得誰送的id
+            send_fb_message(message_sender,message)
+            return ''
+        except:
+            print( json.loads(request.data.decode('utf8')))
+            print('\n')
+            return''
+    else: #地0關驗證
+        return str(request.args['hub.challenge'])
+		
+# 回訊息
+def send_fb_message(to, message):
+    post_message_url = 'https://graph.facebook.com/v2.6/me/messages'
+	
+    response_message = json.dumps({"recipient":{"id": to},
+                                   "message":{"text":execute(message)}})
+    print(response_message)
+    req = requests.post(post_message_url,
+                    params={"access_token": FB_TOKEN},
+                    headers={"Content-Type": "application/json"},
+                    data=response_message)
+
 #CMD
 def execute(cmd):
     if cmd == 'help':
@@ -67,6 +97,19 @@ def execute(cmd):
     else:
         return '你再說什麼?'
 
+#web頁面
+@app.route('/web', methods=['GET','POST'])
+def index():
+    if request.method == 'GET':
+        return render_template('index.html')
+    elif request.method == 'POST':
+        cmd = request.form.get('inputCommand')
+        return render_template('index.html', result = execute(cmd))
+
+#隱私權頁面
+@app.route('/privacy')
+def privacy():
+    return render_template('privacy_policy.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=8000,threaded=True)
