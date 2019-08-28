@@ -13,7 +13,7 @@ var configs = (function () {
     };
     Singleton.defaultOptions = {
         welcome: "歡迎來到黑客社 Bot\n開始玩遊戲吧\n小提示:輸入 help 查看指令如何使用",
-        general_help: "您可以使用下列的指令\n若您覺得字出現的太慢可以雙擊加速喔\n\n輸入 cat game\n查看 game 這個檔案，內涵遊戲說明\n",
+        general_help: "您可以使用下列的指令\n若您覺得字出現的太慢可以雙擊加速喔(手機瀏覽器有可能會失效)\n\n輸入 cat game\n查看 game 這個檔案，內涵遊戲說明\n",
         ls_help: "List information about the files and folders (the current directory by default).",
         cat_help: "Read FILE(s) content and print it to the standard output (screen).",
         whoami_help: "Print the user name associated with the current effective user ID and more info.",
