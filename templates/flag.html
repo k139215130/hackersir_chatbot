@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>黑課社 - Bot</title>
+        <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/x-icon" />
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/cover/">
+
+         <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <style>
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                    font-size: 3.5rem;
+                }
+            }
+        </style>
+
+        <!-- Custom styles for this template -->
+        <link href="{{ url_for('static', filename='css/cover.css') }}" rel="stylesheet" type="text/css">
+    </head>
+    <body class="text-center">
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <header class="masthead mb-auto">
+                <div class="inner">
+                <h3 class="masthead-brand">黑課社 - Bot</h3>
+                    <nav class="nav nav-masthead justify-content-center">
+                        <a class="nav-link active" href="{{ url_for('flag') }}">Solution</a>
+                        <a class="nav-link" href="https://www.facebook.com/HackerSir.tw/" target="_blank">粉專</a>
+                        <a class="nav-link" href="https://act.hackersir.org/" target="_blank">所有活動</a>
+                    </nav>
+                </div>
+            </header>
+
+            <main role="main" class="inner cover">
+                <h1 class="cover-heading">恭喜你找到 Flag</h1>
+                <p class="lead">
+                    <code>HackerSir{童舒晧好醜!!!}</code>
+                </p>
+
+                <div class="alert alert-info " role="alert">
+                    <h4 class="alert-heading">新生茶會資訊</h4>
+                    <hr>
+                    <p>時間:09/26 18:15</p>
+                    <p>地點:<a href="https://i.imgur.com/D8kttzl.jpg" target="_blank" style="color:black;">科航八樓</a></p>
+                </div>
+
+                <p class="lead">
+                    <a href="{{ url_for('index') }}" class="btn btn-lg btn-primary">點我回去玩 Bot</a>
+                </p>
+            </main>
+
+            <footer class="mastfoot mt-auto">
+                <div class="inner">
+                    <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
