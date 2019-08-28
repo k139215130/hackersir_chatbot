@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-FB_TOKEN = ''
-LINE_TOKEN = []
 
 DEFAULT_BUTTON=["黑客社介紹","新生茶會","社課","我要領獎品","粉絲專頁","Linux指令"]
 CLASS_BUTTON = ["python","iot","資安","金融科技與資料科學活動","回目錄"]
