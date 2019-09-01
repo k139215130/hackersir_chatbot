@@ -72,7 +72,7 @@ var files = (function () {
         "flag": "很聰明喔，但這不是 flag",
         "privacy": window.location.href.toString() + 'privacy',
         "robots.txt": "User-agent: *\nAllow: /*/privacy*\nDisallow: /*/flag*",
-        "新生茶會": "時間:???\n地點:科航八樓\n\n科航八樓在哪?\n從資電館往南走\n在商學院右邊\n請從科航館左邊門進入電梯\n搭往8樓\n\n還是不知道嗎?\n查看新生茶會地點這個檔案",
+        "新生茶會": "日期:2019/09/17\n時間:19:00~21:00\n地點:科航八樓\n\n科航八樓在哪?\n從資電館往南走\n在商學院右邊\n請從科航館左邊門進入電梯\n搭往8樓\n\n還是不知道嗎?\n查看新生茶會地點這個檔案",
         "新生茶會地點": "https://goo.gl/maps/6uNUywmbjU32",
         "黑客社": "我不知道要放甚麼",
         "activity": "https://act.hackersir.org/",
