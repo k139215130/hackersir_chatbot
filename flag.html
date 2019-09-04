@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>黑課社 - Bot</title>
-        <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/x-icon" />
+        <title>黑客社 - Bot</title>
+        <link rel="icon" href="static/img/favicon.png" type="image/x-icon" />
         <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/cover/">
 
          <!-- Required meta tags -->
@@ -29,15 +29,15 @@
         </style>
 
         <!-- Custom styles for this template -->
-        <link href="{{ url_for('static', filename='css/cover.css') }}" rel="stylesheet" type="text/css">
+        <link href="static/css/cover.css" rel="stylesheet" type="text/css">
     </head>
     <body class="text-center">
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
             <header class="masthead mb-auto">
                 <div class="inner">
-                <h3 class="masthead-brand">黑課社 - Bot</h3>
+                <h3 class="masthead-brand">黑客社 - Bot</h3>
                     <nav class="nav nav-masthead justify-content-center">
-                        <a class="nav-link active" href="{{ url_for('flag') }}">Solution</a>
+                        <a class="nav-link active" href="javascript:void(0)">Solution</a>
                         <a class="nav-link" href="https://www.facebook.com/HackerSir.tw/" target="_blank">粉專</a>
                         <a class="nav-link" href="https://act.hackersir.org/" target="_blank">所有活動</a>
                     </nav>
@@ -58,7 +58,7 @@
                 </div>
 
                 <p class="lead">
-                    <a href="{{ url_for('index') }}" class="btn btn-lg btn-primary">點我回去玩 Bot</a>
+                    <a onClick="window.open('./index.html')" class="btn btn-lg btn-primary">點我回去玩 Bot</a>
                 </p>
             </main>
 
