@@ -78,6 +78,7 @@ var files = (function () {
         "activity": "https://act.hackersir.org/",
         "facebook": "https://www.facebook.com/HackerSir.tw/",
         "ig": "https://www.instagram.com/fcu_hackersir/",
+        "king": "https://king.hackersir.org/",
     };
     return {
         getInstance: function (options) {
